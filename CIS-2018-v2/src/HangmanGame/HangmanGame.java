@@ -1,6 +1,8 @@
 package HangmanGame;
 
 import java.util.Scanner;
+
+import com.sun.corba.se.spi.orbutil.fsm.Input;
 public class HangmanGame {
 
 	
@@ -21,8 +23,8 @@ public class HangmanGame {
 		boolean areWePlaying = true;
 		while (areWePlaying) {
 				System.out.println("Welcome to Hangman!");//Welcome user
-		String hint = " Your hint is: ' Vacationland '";
-		String word = "Maine"; //Created object 'word'
+		String hint = " Your hint is: 'Vacationland '";
+		String word = "maine"; //Created object 'word'
 		char[] maine = word.toCharArray();//Created character array for 'Maine'
 		int amountOfGuesses = maine.length;//Stating how many guesses to solve
 		char[] playerGuesses = new char[amountOfGuesses];//New character array to store guesses
@@ -46,6 +48,10 @@ public class HangmanGame {
 				areWePlaying = false; //Creating an end to the game == Condition is met
 				wordIsGuessed = true; // Creating an end to the game == Condition is met
 				}
+			if (input == '?')
+			{
+				System.out.println(hint);
+			}
 			else
 			{
 				for (int i = 0; i < maine.length; i++)  //Starting main for loop for guess process
@@ -53,10 +59,6 @@ public class HangmanGame {
 					if (maine[i] == input) //When maine array is equal to user's input
 					{
 						playerGuesses[i] = input; //The user's input is equivalent to playerGuess array at int i
-					}
-					else if (input == '?') //Creating an else condition for when user wants a hint
-					{
-						System.out.print(hint);
 					}
 					if (isTheWordGuessed(playerGuesses)) //Checking to see if playerGuesses has any more '*' left in the array referenced at bottom of the code in a static boolean
 					{
