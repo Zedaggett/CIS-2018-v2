@@ -12,7 +12,10 @@ public class HangmanGame {
 		 * Create objects/variables
 		 * createed loop '*' using arrays to store char data
 		 * initialize the amount of tries user gets
-		 * create while loop for !wordIsGuessed (NOT guessed)
+		 * create while loop for !wordIsGuessed (NOT guessed) - this is the main part of the game itself, running
+		 * get user's data to initialize a 'If/Else' scenario (to quit or keep playing) that leads into a for loop
+		 * This for loops is where the game is being played
+		 * Take user's data and apply conditions to meet certain outcomes
 		 * 
 		 */
 		boolean areWePlaying = true;
@@ -29,7 +32,7 @@ public class HangmanGame {
 		}								//Created loop for '*'
 		boolean wordIsGuessed = false;
 		int tries = 0;//Initialized how many tries the user has had
-		
+/////////////////////////////////		
 		while (!wordIsGuessed && tries != amountOfGuesses){ //Starting a loop for when the game begins
 				System.out.println("Current guesses: ");
 				System.out.println(playerGuesses);
@@ -55,14 +58,13 @@ public class HangmanGame {
 					{
 						System.out.print(hint);
 					}
-					if (isTheWordGuessed(playerGuesses)) //Once the rest of the loop has completed, wordIsGuessed is either true or false
+					if (isTheWordGuessed(playerGuesses)) //Checking to see if playerGuesses has any more '*' left in the array referenced at bottom of the code in a static boolean
 					{
 						wordIsGuessed = true;
 						System.out.println("YOU WIN!"); // Condition is met for winning
 					}
 			    }
-			}
-					
+			}					
 		}
 		if (!wordIsGuessed) // I've taken this out of the conditional loop because we are trying to solve for true, the boolean already == false
 		{					// Condition here is if user cannot guess word/ask for hint
@@ -73,14 +75,9 @@ public class HangmanGame {
 			if (anotherGame.equals("n")) areWePlaying = false; // Creating a condition for the user to exit the game
 		}
 	}
+}
 		
-	
-			{
-				System.out.println("Game Over"); // Game is over because user lost :'(
-			}
-		}
-	
-			
+////////////////////////////////////			
 			public static boolean isTheWordGuessed(char[] array) //Creating a method for isTheWordGuessed 
 			{
 				for (int i = 0; i < array.length; i++)//Creating a loop to check the array for any '*' characters
