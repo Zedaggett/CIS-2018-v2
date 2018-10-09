@@ -8,10 +8,11 @@ public class HangmanGame {
 		Scanner sc = new Scanner(System.in);
 		/*
 		 * Logic is as follows:
-		 * Welcome user to game
-		 * create objects and variables to recall/manipulate for later
-		 * create loop '*'
+		 * create initial boolean to start looping
+		 * Create objects/variables
+		 * createed loop '*' using arrays to store char data
 		 * initialize the amount of tries user gets
+		 * create while loop for !wordIsGuessed (NOT guessed)
 		 * 
 		 */
 		boolean areWePlaying = true;
@@ -32,7 +33,7 @@ public class HangmanGame {
 		while (!wordIsGuessed && tries != amountOfGuesses){ //Starting a loop for when the game begins
 				System.out.println("Current guesses: ");
 				System.out.println(playerGuesses);
-				System.out.printf("You have %d tries left. Enter '?' for hint or '-'to exit", amountOfGuesses - tries);
+				System.out.printf("You have %d tries left. Enter '?' for hint or '-'to exit", amountOfGuesses - tries); // using 'printf' because the line involves a function (%d) (amountOfGuesses - treis)
 				System.out.println(" ");
 				System.out.println("Please enter a letter");
 			char input = sc.nextLine().charAt(0);//Taking user's input at first character
